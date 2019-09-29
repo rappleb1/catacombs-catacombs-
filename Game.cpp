@@ -41,6 +41,13 @@ Game::Game(Character ch){
   // push value to current room
   m_currentRoom.push(toFrom);
   // while you have not completed the maze (hardcoded)
+
+  // flavor text beginning
+  cout << "You wake up in a dark, slightly damp, very dank room. The last thing" << endl;
+  cout << "you remember is finally deciding to try to exercise. You went to the" << endl;
+  cout << "RAC, and then... and then...\nAnd then you woke up here." << endl;
+  cout << "You can tell you're deep underground. You have to get out of here." << endl;
+
   while (m_currentRoom.read().second != 4 && m_currentRoom.read().second != 5 && ch.m_heal != 0){
     // possible choices cleared
     possibleChoices.resize(0);
@@ -126,7 +133,24 @@ Game::Game(Character ch){
           }
         }
       }
-    };
+    if (ch.m_heal > 0){
+      cout << "You are in room " << m_currentRoom.read().second << "."<< endl;
+      cout << m_flavorText.at(m_currentRoom.read().second) << endl;
+
+      // ending flavor m_flavorText
+      cout << "The smell of old paper and stressed students is thick here." << endl;
+      cout << "You've made it to the base of the AOK library and gallery, your route to freedom" << endl;
+      cout << "You swipe your student ID in the slot by the elevator, swipe it again" << endl;
+      cout << "because it didn't work the first time (ugh), and press the button." << endl;
+      cout << "The doors slide open with grandeur, and you enter the elevator car." << endl;
+      cout << "\nWhen the doors open next, you're standing on the seventh floor of" << endl;
+      cout << "the library, looking out over a beautiful sunrise. To your right, you" << endl;
+      cout << "see the silhouette of Dr. Freeman Hrabowski, illuiminated.\n" << endl;
+      cout << "He turns, and smiles at you. The world fades away...\n\n" << endl;
+      cout << "Congrats, you won the game!" << endl;
+
+    }
+  };
 
   void Game::Battle(Character ch, Character chE){
     int userChoice;
@@ -178,8 +202,7 @@ Game::Game(Character ch){
       }
     }
     else if (userChoice == 3){
-      // items???!?!??!?
-      cout << "choice 3" << endl;
+      cout << "Coming soon!" << endl;
     }
   }
   }

@@ -134,37 +134,51 @@ private:
  "You have a vision of a single brick far above you. The side of it says ‘eat the rich.’",
  "You have a vision of a single brick far above you. The side of it says ‘eat the rich.’",
  "The smell of sweat and exposed shoulders filters in from above.",
-"You can hear a basketball thumping on the roof overhead. You must be below the RAC."
+ "You can hear a basketball thumping on the roof overhead. You must be below the RAC."
 
 
 };
 
-  //hard coded items
-  vector<pair<vector<string>, vector<int>>> m_items{
-    {{"a sandwich", "f l a v o r get", " flavor use"}, {10, 0, 0, 0}},
+//hard coded items
+// starter random-find items
+vector<pair<vector<string>, vector<int>>> m_items_s{
+  {{"a sandwich", "It's not super interesting...", "You eat the sandwich. "}, {10, 0, 0, 0}},
+  {{"a drawing tablet", "It could come in handy later.", "You offer them the tablet."}, {0, 2, 5, -1}},
+  {{"some Chik-Fil-A sauce", "Its mysterious orangey color warms your bones.", "You toss them the sauce packet."}, {2, 6, 0, 0}},
+  {{"a letter written in arabic", "Despite the language barrier, you can tell there are some strong emotions in it.", "You hold out the letter, neatly folded."}, {1, 8, 1, 0}} };
 
+// advanced random-find items
+vector<pair<vector<string>, vector<int>>> m_items_a{
+  {{"200 dollars", "You don't know what you could buy down here, though.", "You offer them the $200 you found earlier."}, {0, 0, 0, 0}},
+  {{"True Grit's bandana", "It hums with energy.", "You take off the bandana and hold it out to them."}, {0, 1, 8, 2}},
+  {{"Chip's training vest", "It's covered in dark brown fur and positivity.", "You unbuckle the vest from your leg (it's too small for your torso) and offer it."}, {0, 1, 10, 8}},
+  {{"knife", "It's larger than campus allows, but you think it's okay to have down here.", "You throw the knife at them."}, {0, 10, 2, 0}} };
 
-
-  };
+// expert items, hard coded locations
+vector<pair<vector<string>, vector<int>>> m_items_e{
+  {{"the keycard", "It says 'Freeman Hrabowski' on the front.", ""}, {0, 1, 1, 0}}, // should be a drop from False Grit
+  {{"ear defenders", "They muffle sound almost completely.", "You put on the ear defenders, blocking out all noise."}, {0, 0, 10, 10}}, // should be found down a moderately far dead end
+  {{"a super soaker full of bleach", "You think it was probably from a Humans vs. Zombies person.", "You pump the pressurizer and fire away."}, {0, 10, 5, 0}}, // should be found down a far dead end
+  {{"a cat", "They're adorable, you can't stop checking on it, but you don't mind that it slows you down.", "You let the cat out of the bag (literally)."}, {8, 8, 8, -8}} }; // 1% chance of generating in rooms 00-49
 
   // data of each cells neighbors
   vector<vector<int>> m_rooms = {
-    {-1, 10, -1, 1},
-    {-1, -1, 0, 2},
-    {-1, 12, 1, -1},
+    {-1, 10, -1, 01},
+    {-1, -1, 00, 02},
+    {-1, 12, 01, -1},
     {-1, -1, -1, -1},
-    {-1, 14, -1, 5},
-    {-1, 15, 4, -1},
-    {-1, -1, -1, -1},
-    {-1, -1, -1, -1},
+    {-1, 14, -1, 05},
+    {-1, 15, 04, -1},
     {-1, -1, -1, -1},
     {-1, -1, -1, -1},
-    {0, 20, -1, -1},
     {-1, -1, -1, -1},
-    {2, 22, -1, -1},
     {-1, -1, -1, -1},
-    {4, 24, -1, 15},
-    {5, 25, 14, -1},
+    {00, 20, -1, -1},
+    {-1, -1, -1, -1},
+    {02, 22, -1, -1},
+    {-1, -1, -1, -1},
+    {04, 24, -1, 15},
+    {05, 25, 14, -1},
     {-1, -1, -1, -1},
     {-1, -1, -1, -1},
     {-1, -1, -1, -1},
