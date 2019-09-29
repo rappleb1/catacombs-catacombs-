@@ -15,7 +15,7 @@ Character::Character(){
 
   // User inputs character information
   cout << "What is your name?" << endl;
-  cin >> m_name;
+  getline(cin, m_name);
   cout << "What is your class?" << endl;
   for (int i = 0; i < numClasses; i++){
     cout << i + 1 << ". " <<  m_classes[i] << endl;
